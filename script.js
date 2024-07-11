@@ -51,9 +51,9 @@ changeGridDimensionBtn.addEventListener("click", () => {
     // Check if the user has entered a value
     if (userInput !== null && userInput !== '') {
         const rows = parseInt(userInput);
-        if (!isNaN(rows) && rows > 0) {
+        if (!isNaN(rows) && rows <= 0) {
             createDivs(rows);
-        } else if(rows > 100){
+        } else if(!isNaN(rows) && rows > 100){
             alert('Grid dimension should\'t be more than 100. Using default 16x16 grid.');
             createDivs(16);
         }
