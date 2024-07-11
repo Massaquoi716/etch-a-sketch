@@ -53,8 +53,8 @@ changeGridDimensionBtn.addEventListener("click", () => {
         const rows = parseInt(userInput);
         if (!isNaN(rows) && rows > 0) {
             createDivs(rows);
-        } else {
-            alert('Invalid grid dimension. Using default 16x16 grid.');
+        } else if(rows > 100){
+            alert('Grid dimension should\'t be more than 100. Using default 16x16 grid.');
             createDivs(16);
         }
     } else {
