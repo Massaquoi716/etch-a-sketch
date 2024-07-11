@@ -20,13 +20,18 @@ function createDivs(numDivs) {
 createDivs(16);
 
 containerDiv.addEventListener("mouseover", (event) => {
+    if (event.target.classList.contains('grid-item')) {
         // Generate random RGB values
-    let r = Math.floor(Math.random() * 256); // Random integer from 0 to 255
-    let g = Math.floor(Math.random() * 256); // Random integer from 0 to 255
-    let b = Math.floor(Math.random() * 256); // Random integer from 0 to 255
-    
-     // Construct RGB color string
-    let rgbColor = `rgb(${r}, ${g}, ${b})`;
+        let r = Math.floor(Math.random() * 256); // Random integer from 0 to 255
+        let g = Math.floor(Math.random() * 256); // Random integer from 0 to 255
+        let b = Math.floor(Math.random() * 256); // Random integer from 0 to 255
 
-    event.target.style.backgroundColor = rgbColor;
-})
+
+        // Construct RGB color string
+        let rgbColor = `rgb(${r}, ${g}, ${b})`;
+        
+        // Apply background color
+        event.target.style.backgroundColor = rgbColor;
+    }
+});
+
