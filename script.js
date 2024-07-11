@@ -1,7 +1,10 @@
 const containerDiv = document.querySelector(".container");
+const changeGridDimensionBtn = document.querySelector(".gridDimensionBtn");
 
 //creates and populates containDiv with child divs with their width and heights provided by the user
 function createDivs(numDivs) {
+
+    containerDiv.innerHTML = '';
     let grid = numDivs * numDivs;
     for (let i = 1; i <= grid; i++) {
         // Create a new div element
@@ -10,14 +13,19 @@ function createDivs(numDivs) {
         // Add a class to the new div 
         newDiv.classList.add('grid-item');
         
+       
+        
 
         // Append the new div to the container
         containerDiv.appendChild(newDiv);
-    }
+
+    
 }
 
-// Create 16 divs
-createDivs(16);
+
+}
+
+
 
 containerDiv.addEventListener("mouseover", (event) => {
     if (event.target.classList.contains('grid-item')) {
@@ -34,4 +42,12 @@ containerDiv.addEventListener("mouseover", (event) => {
         event.target.style.backgroundColor = rgbColor;
     }
 });
+createDivs(16);
+changeGridDimensionBtn.addEventListener("click", () => {
+    // Get user input for rows and columns
+    const rows = parseInt(prompt('Enter grid dimension: '));
+    createDivs(rows);
 
+
+    
+})
