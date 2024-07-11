@@ -43,11 +43,25 @@ containerDiv.addEventListener("mouseover", (event) => {
     }
 });
 createDivs(16);
+
 changeGridDimensionBtn.addEventListener("click", () => {
     // Get user input for rows and columns
-    const rows = parseInt(prompt('Enter grid dimension: '));
-    createDivs(rows);
+    const userInput = prompt('Enter grid dimension: ');
+
+    // Check if the user has entered a value
+    if (userInput !== null && userInput !== '') {
+        const rows = parseInt(userInput);
+        if (!isNaN(rows) && rows > 0) {
+            createDivs(rows);
+        } else {
+            alert('Invalid grid dimension. Using default 16x16 grid.');
+            createDivs(16);
+        }
+    } else {
+        // User canceled the prompt or entered an empty value
+        alert('Grid dimension not provided. Using default 16x16 grid.');
+        createDivs(16);
+    }
+});
 
 
-    
-})
