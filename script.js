@@ -44,7 +44,7 @@ containerDiv.addEventListener("mouseover", (event) => {
         event.target.style.backgroundColor = rgbColor;
     }
 });
-createDivs(10);
+createDivs(16);
 
 changeGridDimensionBtn.addEventListener("click", () => {
     // Get user input for rows and columns
@@ -53,7 +53,7 @@ changeGridDimensionBtn.addEventListener("click", () => {
     // Check if the user has entered a value
     if (userInput !== null && userInput !== '') {
         const rows = parseInt(userInput);
-        if (!isNaN(rows) && rows !== 0 && rows < 100) {
+        if (!isNaN(rows) && rows !== 0 && rows <= 100) {
             createDivs(rows);
         } else if(!isNaN(rows) && rows > 100){
             alert('Grid dimension should\'t be more than 100. Using default 16x16 grid.');
